@@ -9,11 +9,12 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f2f2;
+      background-color: #f9f9f9;
     }
     h1 {
       text-align: center;
       color: #333;
+      margin-top: 30px;
     }
     form {
       max-width: 600px;
@@ -30,7 +31,7 @@
     }
     select {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin-bottom: 20px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -39,13 +40,15 @@
     button {
       display: block;
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 18px;
+      margin-top: 20px;
+      transition: background-color 0.3s;
     }
     button:hover {
       background-color: #45a049;
@@ -53,20 +56,21 @@
     #total {
       margin-top: 20px;
       text-align: center;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
+      color: #333;
     }
   </style>
   <script>
     function calculateTotal() {
-      var cpuPrice = document.getElementById("cpu").value;
-      var motherboardPrice = document.getElementById("motherboard").value;
-      var gpuPrice = document.getElementById("gpu").value;
-      var psuPrice = document.getElementById("psu").value;
-      var ramPrice = document.getElementById("ram").value;
-      var ssdPrice = document.getElementById("ssd").value;
+      var cpuPrice = parseInt(document.getElementById("cpu").value);
+      var motherboardPrice = parseInt(document.getElementById("motherboard").value);
+      var gpuPrice = parseInt(document.getElementById("gpu").value);
+      var psuPrice = parseInt(document.getElementById("psu").value);
+      var ramPrice = parseInt(document.getElementById("ram").value);
+      var ssdPrice = parseInt(document.getElementById("ssd").value);
 
-      var total = parseInt(cpuPrice) + parseInt(motherboardPrice) + parseInt(gpuPrice) + parseInt(psuPrice) + parseInt(ramPrice) + parseInt(ssdPrice);
+      var total = cpuPrice + motherboardPrice + gpuPrice + psuPrice + ramPrice + ssdPrice;
 
       document.getElementById("total").innerHTML = "Total Price: " + total + " рублей";
     }
@@ -78,6 +82,7 @@
     <div>
       <label for="cpu">CPU:</label>
       <select id="cpu">
+        <!-- CPU options -->
         <option value="15000">Amd Ryzen 5600x</option>
         <option value="24000">Amd Ryzen 5800x</option>
         <option value="65000">Amd Ryzen 5950x</option>
@@ -97,6 +102,7 @@
     <div>
       <label for="motherboard">Motherboard:</label>
       <select id="motherboard">
+        <!-- Motherboard options -->
         <option value="30000">ASUS Rog strix AM5, tier 1</option>
         <option value="55000">ASUS Rog strix AM5, tier 0</option>
         <option value="20000">ASUS TUF AM5, tier 2</option>
@@ -110,6 +116,7 @@
     <div>
       <label for="gpu">Video Card:</label>
       <select id="gpu">
+        <!-- GPU options -->
         <option value="25000">GeForce RTX 3060</option>
         <option value="30000">GeForce RTX 3060 Ti</option>
         <option value="45000">GeForce RTX 3070</option>
@@ -138,6 +145,7 @@
     <div>
       <label for="psu">Power Supply Unit:</label>
       <select id="psu">
+        <!-- PSU options -->
         <option value="7000">650w tier3</option>
         <option value="10000">850w tier2</option>
         <option value="12000">1000w tier1</option>
@@ -147,6 +155,7 @@
     <div>
       <label for="ram">Amount of RAM:</label>
       <select id="ram">
+        <!-- RAM options -->
         <option value="10000">16GB</option>
         <option value="14000">32GB</option>
       </select>
@@ -160,7 +169,7 @@
         <option value="16000">3tb</option>
       </select>
     </div>
-    <button onclick="calculateTotal()">Calculate Total</button>
+    <button type="button" onclick="calculateTotal()">Calculate Total</button>
     <div id="total"></div>
   </form>
 </body>
