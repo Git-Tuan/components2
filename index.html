@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,7 +99,27 @@
         <select name="videocard" id="gpu">
             <!-- (Video card options...) -->
         </select>
+        <label for="powersupply">Power Supply Unit:</label>
+        <select name="powersupply" id="psu">
+            <option value="psu_650w" data-price="7000">650W - Tier3 <span class="price">₽7000</span></option>
+            <option value="psu_850w" data-price="10000">850W - Tier2 <span class="price">₽10000</span></option>
+            <option value="psu_1000w" data-price="12000">1000W - Tier1 <span class="price">₽12000</span></option>
+            <option value="psu_1200w" data-price="16000">1200W - Tier0 <span class="price">₽16000</span></option>
+        </select>
 
+        <label for="ram">Amount of RAM:</label>
+        <select name="ram" id="ram">
+            <option value="ram_16gb" data-price="10000">16GB <span class="price">₽10000</span></option>
+            <option value="ram_32gb" data-price="14000">32GB <span class="price">₽14000</span></option>
+        </select>
+
+        <label for="ssd">SSD:</label>
+        <select name="ssd" id="ssd">
+            <option value="ssd_500gb" data-price="5000">500GB <span class="price">₽5000</span></option>
+            <option value="ssd_1tb" data-price="9000">1TB <span class="price">₽9000</span></option>
+            <option value="ssd_2tb" data-price="13000">2TB <span class="price">₽13000</span></option>
+            <option value="ssd_3tb" data-price="16000">3TB <span class="price">₽16000</span></option>
+        </select>
         <button onclick="calculateTotal()">Calculate Total Price</button>
         <p>Total Price: <span id="totalPrice" class="price">0</span></p>
     </main>
@@ -189,19 +210,24 @@
         }
 
         function calculateTotal() {
-            const selectedProcessor = document.getElementById('proc');
-            const selectedMotherboard = document.getElementById('matka');
-            const selectedVideoCard = document.getElementById('gpu');
+    const selectedProcessor = document.getElementById('proc');
+    const selectedMotherboard = document.getElementById('matka');
+    const selectedVideoCard = document.getElementById('gpu');
+    const selectedPSU = document.getElementById('psu');
+    const selectedRAM = document.getElementById('ram');
+    const selectedSSD = document.getElementById('ssd');
 
-            const processorPrice = parseFloat(selectedProcessor.options[selectedProcessor.selectedIndex].getAttribute('data-price')) || 0;
-            const motherboardPrice = parseFloat(selectedMotherboard.options[selectedMotherboard.selectedIndex].getAttribute('data-price')) || 0;
-            const videoCardPrice = parseFloat(selectedVideoCard.options[selectedVideoCard.selectedIndex].getAttribute('data-price')) || 0;
+    const processorPrice = parseFloat(selectedProcessor.options[selectedProcessor.selectedIndex].getAttribute('data-price')) || 0;
+    const motherboardPrice = parseFloat(selectedMotherboard.options[selectedMotherboard.selectedIndex].getAttribute('data-price')) || 0;
+    const videoCardPrice = parseFloat(selectedVideoCard.options[selectedVideoCard.selectedIndex].getAttribute('data-price')) || 0;
+    const psuPrice = parseFloat(selectedPSU.options[selectedPSU.selectedIndex].getAttribute('data-price')) || 0;
+    const ramPrice = parseFloat(selectedRAM.options[selectedRAM.selectedIndex].getAttribute('data-price')) || 0;
+    const ssdPrice = parseFloat(selectedSSD.options[selectedSSD.selectedIndex].getAttribute('data-price')) || 0;
 
-            const totalPrice = processorPrice + motherboardPrice + videoCardPrice;
+    const totalPrice = processorPrice + motherboardPrice + videoCardPrice + psuPrice + ramPrice + ssdPrice;
 
-            document.getElementById('totalPrice').textContent = `₽${totalPrice.toLocaleString()}`;
-        }
-
+    document.getElementById('totalPrice').textContent = `₽${totalPrice.toLocaleString()}`;
+}
     </script>
 </body>
 
