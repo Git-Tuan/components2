@@ -72,6 +72,7 @@
         <label for="processor">Processor:</label>
         <select name="processor" id="proc" onchange="updateMotherboards(); updateVideoCard();">
             <!-- AMD Ryzen Processors -->
+            <option value="" selected disabled>Select Processor</option>
             <option value="amd_ryzen_5600x" data-compatibility="AM4, AMD, 5000, Tier2" data-price="15000">Ryzen 5 5600x - Tier2,AM4 <span class="price">₽15000</span>, low tgp</option>
             <option value="amd_ryzen_5800x" data-compatibility="AM4, AMD, 5000, Tier1" data-price="24000">Ryzen 7 5800x - Tier1,AM4 <span class="price">₽24000</span>, high tgp</option>
             <option value="amd_ryzen_5950x" data-compatibility="AM4, AMD, 5000, Tier0" data-price="65000">Ryzen 9 5950x - Tier0,AM4 <span class="price">₽65000</span>, very high tgp</option>
