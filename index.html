@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,7 @@
             font-family: 'Arial', sans-serif;
             margin: 20px;
             background-color: #f5f5f5;
-            color: #333;
+            color: #d70707;
         }
 
         h1 {
@@ -55,24 +54,22 @@
             font-size: 18px;
             text-align: center;
             margin-top: 10px;
-            color: #555;
+            color: #ea0909;
         }
 
         .price {
             color: #4285f4;
-            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
-    <h1>Build Your PC</h1>
+    <h1>Построй свой компьютер</h1>
 
     <main>
-        <label for="processor">Processor:</label>
+        <label for="processor">Процессор :</label>
         <select name="processor" id="proc" onchange="updateMotherboards(); updateVideoCard();">
             <!-- AMD Ryzen Processors -->
-            <option value="" selected disabled>Select Processor</option>
             <option value="amd_ryzen_5600x" data-compatibility="AM4, AMD, 5000, Tier2" data-price="15000">Ryzen 5 5600x - Tier2,AM4 <span class="price">₽15000</span>, low tgp</option>
             <option value="amd_ryzen_5800x" data-compatibility="AM4, AMD, 5000, Tier1" data-price="24000">Ryzen 7 5800x - Tier1,AM4 <span class="price">₽24000</span>, high tgp</option>
             <option value="amd_ryzen_5950x" data-compatibility="AM4, AMD, 5000, Tier0" data-price="65000">Ryzen 9 5950x - Tier0,AM4 <span class="price">₽65000</span>, very high tgp</option>
@@ -91,41 +88,38 @@
             <option value="intel_13900k" data-compatibility="LGA1700, Intel, 13000, Tier0" data-price="60000">Core i9-13900k - Tier0,LGA1700 <span class="price">₽60000</span>, very high tgp</option>
         </select>
 
-        <label for="motherboard">Motherboard:</label>
+        <label for="motherboard">Материнская плата:</label>
         <select name="motherboard" id="matka">
             <!-- (Motherboard options...) -->
         </select>
 
-        <label for="videocard">Video Card:</label>
+        <label for="videocard">Видеокарта:</label>
         <select name="videocard" id="gpu">
             <!-- (Video card options...) -->
         </select>
-        <label for="powersupply">Power Supply Unit:</label>
+        <label for="powersupply">Блок питание:</label>
         <select name="powersupply" id="psu">
-            <option value="" selected disabled>Select PSU</option>
             <option value="psu_650w" data-price="7000">650W - Tier3 <span class="price">₽7000</span></option>
             <option value="psu_850w" data-price="10000">850W - Tier2 <span class="price">₽10000</span></option>
             <option value="psu_1000w" data-price="12000">1000W - Tier1 <span class="price">₽12000</span></option>
             <option value="psu_1200w" data-price="16000">1200W - Tier0 <span class="price">₽16000</span></option>
         </select>
 
-        <label for="ram">Amount of RAM:</label>
+        <label for="ram">Оперативная память:</label>
         <select name="ram" id="ram">
-            <option value="" selected disabled>Select RAM</option>
             <option value="ram_16gb" data-price="10000">16GB <span class="price">₽10000</span></option>
             <option value="ram_32gb" data-price="14000">32GB <span class="price">₽14000</span></option>
         </select>
 
-        <label for="ssd">SSD:</label>
+        <label for="ssd">Накопитель :</label>
         <select name="ssd" id="ssd">
-            <option value="" selected disabled>Select SSD</option>
             <option value="ssd_500gb" data-price="5000">500GB <span class="price">₽5000</span></option>
             <option value="ssd_1tb" data-price="9000">1TB <span class="price">₽9000</span></option>
             <option value="ssd_2tb" data-price="13000">2TB <span class="price">₽13000</span></option>
             <option value="ssd_3tb" data-price="16000">3TB <span class="price">₽16000</span></option>
         </select>
-        <button onclick="calculateTotal()">Calculate Total Price</button>
-        <p>Total Price: <span id="totalPrice" class="price">0</span></p>
+        <button onclick="calculateTotal()">Расчитать стоимость компьютера</button>
+        <p>Итого: <span id="totalPrice" class="price">0</span></p>
     </main>
 
     <script>
@@ -137,7 +131,7 @@
             motherboardSelect.innerHTML = ''; // Clear existing options
 
             // Sample motherboard data
-            const motherboards = [
+            const motherboards = [  
                 { name: 'ASUS Rog strix, socket:AM5, tier 1', compatibility: 'AM5, AMD, Tier1', 'data-price': 30000 },
                 { name: 'ASUS Rog strix, socket:AM5, tier0', compatibility: 'AM5, AMD, Tier0', 'data-price': 55000 },
                 { name: 'ASUS TUF, socket:AM5, tier2', compatibility: 'AM5, AMD, Tier2', 'data-price': 20000 },
